@@ -143,7 +143,7 @@ def msgReceiver(message):
 
                     angleX = (averageX - horizontalRes*.5)*horizontalFov / horizontalRes
                     angleY = (averageY - verticalRes*.5)*verticalFov / verticalRes
-
+'''
                     if vehicle.mode!='LAND':
                         vehicle.mode = VehicleMode('LAND')
                         while vehicle.mode!='LAND':
@@ -152,9 +152,8 @@ def msgReceiver(message):
                         sendLandingOption(angleX,angleY)
                     else:
                         sendLandingOption(angleX,angleY)
-
+'''
                     position = 'MARKER POSITION: x=' + x +' y=' + y +' z=' + z
-
                     aruco.drawDetectedMarkers(data,corners)
                     aruco.drawAxis(data,npCameraMatrix,npDistCoeff,rvec,tvec,10)
                     cv2.putText(data,position,(10,50),0,.7,(255,0,0),thickness=2)
@@ -184,10 +183,10 @@ def subscriber():
 
 if __name__=='__main__':
     try:
-        armAndTakeoff(takeoffHeight)
-        time.sleep(1)
-        sendVelocity(0,velocity,0)
-        time.sleep(10)
+        #armAndTakeoff(takeoffHeight)
+        #time.sleep(1)
+        #sendVelocity(0,velocity,0)
+        #time.sleep(10)
         subscriber()
     except rospy.ROSInterruptException:
         pass
